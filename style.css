@@ -1,0 +1,30 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body{
+    height: 100dvh;
+    background-color: rgb(0, 0, 0);
+    font-size: 16px;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container p{
+    font-size: 2rem;
+    color: white;
+    margin: 20px 0 20px 0;
+}
+
+.container img{
+    height: 500px;
+    width: 700px;
+    border: 1px solid rgb(204, 200, 200);
+}

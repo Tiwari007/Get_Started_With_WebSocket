@@ -1,7 +1,12 @@
-// Establish WebSocket connection
-const socket = new WebSocket('your_websocket_url');
+// So according to the problem we know after a successfull connection
+// we have a blob data(for video stream)
+// and then we have to use the blob data and show in img tag or canvas.
 
-// image elements
+
+// Let's create a websocket connection
+const socket = new WebSocket('ws://122.176.20.146:8590');
+
+// store a image element into variable
 const videoImage = document.getElementById('videoImage');
 
 // WebSocket open event
@@ -11,7 +16,8 @@ socket.addEventListener('open', (event) => {
 
 // WebSocket message event
 socket.addEventListener('message', (event) => {
-    // Assuming the data received is a Blob
+
+    // Here we are Assume that the data received is a Blob
     const blobData = event.data;
 
     // Create a URL for the Blob data
@@ -22,12 +28,13 @@ socket.addEventListener('message', (event) => {
     videoImage.style.display = 'block';
 });
 
-// WebSocket close event
+
+// websocket connection closed
 socket.addEventListener('close', (event) => {
     console.log('WebSocket connection closed:', event);
 });
 
-// Handle WebSocket errors
+// Let's Handle the error if Websocket failded to run
 socket.addEventListener('error', (error) => {
     console.error('WebSocket error:', error);
 });
